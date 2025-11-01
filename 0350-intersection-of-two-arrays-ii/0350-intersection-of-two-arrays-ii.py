@@ -1,7 +1,7 @@
 class Solution:
     def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
         dictionary = {}
-        list = []
+        list1 = []
 
 
         for i, e in enumerate(nums1):
@@ -15,7 +15,7 @@ class Solution:
                 if dictionary[e] == 0:
                     pass
                 else:
-                    list.append(e)
+                    list1.append(e)
                     dictionary[e] -= 1
 
-        return list
+        return list1
