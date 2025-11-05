@@ -12,13 +12,9 @@ class Solution:
         for i in s:
             frequency[i] += 1
 
-        print(frequency)
-
         for r in range(len(s)):
             frequency[s[r]] -= 1
-            print("right: ", r, "left", l)
-            print("frequency[r]: ", frequency[s[r]])
-            print("oak: ", oak)
+
             if frequency[s[r]] == 0:
                 while frequency[s[l]] == 0 and l <= r:
                     if l == r:
@@ -27,7 +23,4 @@ class Solution:
                         break
                     l += 1
     
-        if len(res) == 0:
-            return [len(s)]
-        else:
-            return res
+        return res
