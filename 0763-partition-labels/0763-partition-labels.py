@@ -1,11 +1,5 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        # if frequency[r] == 0
-        # then: 
-        # - while frequency[l] == 0 and l <= r"
-        # if l == r
-        # append
-        # naturally break and continue adding to r if it doesnt fulfill the while conditions
         frequency = collections.defaultdict(int)
         l, res = 0, []
         oak = 0
