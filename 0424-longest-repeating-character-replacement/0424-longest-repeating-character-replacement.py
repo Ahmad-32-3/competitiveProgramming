@@ -1,17 +1,18 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        count = collections.defaultdict(int)
-        l = 0
-        res = 0
-        oak = 0
+        l, res = 0, 0
+
+        oak = collections.defaultdict(int)
+
+        count = 0
 
         for r in range(len(s)):
-            count[s[r]] += 1
-            oak = max(oak, count[s[r]])
+            oak[s[r]] += 1
 
-            while (r - l + 1) - oak > k:
-                count[s[l]] -= 1
+            count = max(count, oak[s[r]])
+
+            while (r - l + 1) - count > k:
+                oak[s[l]] -= 1
                 l += 1
-            
-            res = max(r - l + 1, res)
+            res = max(res, r - l + 1)
         return res
