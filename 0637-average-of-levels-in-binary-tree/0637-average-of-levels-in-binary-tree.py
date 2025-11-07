@@ -21,10 +21,11 @@ class Solution:
                 if node:
                     level += node.val
                     len_level += 1
-                    q.append(node.left)
-                    q.append(node.right)
+                    if node.left:
+                        q.append(node.left)
+                    if node.right:
+                        q.append(node.right)
 
-            if len_level != 0:
-                average.append(level / len_level)
+            average.append(level / len_level)
 
         return average
