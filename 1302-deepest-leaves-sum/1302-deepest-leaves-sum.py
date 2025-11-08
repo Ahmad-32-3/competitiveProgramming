@@ -8,6 +8,8 @@ class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
         q = collections.deque()
         q.append(root)
+        if root is None:
+            return 0
 
         while q:
             res = 0
