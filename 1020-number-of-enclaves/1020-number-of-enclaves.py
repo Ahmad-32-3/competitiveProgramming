@@ -15,7 +15,6 @@ class Solution:
 
             while q:
                 r, c = q.popleft()
-                print(r,c)
                 if r == rowLen - 1 or r == 0 or c == colLen - 1 or c == 0:
                     oak = True
                 for dr, dc in directions:
@@ -23,11 +22,9 @@ class Solution:
 
                     if 0 <= nr < rowLen and 0 <= nc < colLen and ((nr, nc)) not in visited and grid[nr][nc] == 1:
                         q.append((nr, nc))
-                        visited.add((nr, nc))
-                        
+                        visited.add((nr, nc))    
                 if not oak:
                     counter += 1
-                print(oak)
 
             if not oak:
                 return counter 
