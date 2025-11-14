@@ -5,29 +5,33 @@ class Solution:
         colLen = len(grid[0])
         q = collections.deque()
         fresh_count = 0
-        minutes = 0
+        res = 0
         for i in range(rowLen):
             for j in range(colLen):
                 if grid[i][j] == 1:
                     fresh_count += 1
                 elif grid[i][j] == 2:
-                    q.append((i, j))
+                    q.append((i,j, 0))
         
-        while q and fresh_count > 0:
-            for i in range(len(q)):
-                r, c = q.popleft()
-
-                for dr, dc in directions:
-                    nr, nc = r + dr, c + dc
-
-                    if 0 <= nr < rowLen and 0 <= nc < colLen and grid[nr][nc] == 1:
-                        grid[nr][nc] = 2
-                        fresh_count -= 1
-                        q.append((nr, nc))
-            minutes += 1
-            
         if fresh_count == 0:
-            return minutes
+            return 0
+
+        while q:
+            r, c, minutes = q.popleft()
+            res = max(res, minutes)
+            
+            for dr, dc in directions:
+                nr, nc = r + dr, c + dc
+
+                if 0 <= nr < rowLen and 0 <= nc < colLen and grid[nr][nc] == 1:
+                    q.append((nr,nc, minutes + 1))
+                    grid[nr][nc] = 2
+                    fresh_count -= 1
+
+        if fresh_count == 0:
+            return res 
         else:
             return -1
+
         
+
