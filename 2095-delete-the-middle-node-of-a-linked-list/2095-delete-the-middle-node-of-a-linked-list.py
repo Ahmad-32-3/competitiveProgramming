@@ -16,7 +16,7 @@ class Solution:
             l = l.next
             r = r.next.next
         if counter == 1:
-            return [ListNode]
+            return None
         if counter % 2 == 1:
             l.next = l.next.next
         else:
