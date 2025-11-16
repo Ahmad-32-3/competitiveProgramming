@@ -5,8 +5,7 @@ class Solution:
         olen = 0
         oak = 0
         l = 0
-        res = 0
-
+        
         for r in range(len(s)):
             while s[r] != s[l]:
                 if s[l] == '0':
