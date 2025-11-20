@@ -1,16 +1,20 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        l, r = 0, len(numbers) - 1
+        left = 0
+        right = len(numbers) - 1
 
-        while (l < r):
-            curr = numbers[l] + numbers[r]
+        # [1,2,3,4,5]
+        #  0,1,2,3,4
+        #numbers[234324] -> parking lot value at lot number left
+        while (left < right):
+            compare = numbers[left] + numbers[right]
+            if compare > target:
+                right = right - 1
+            if compare < target:
+                left = left + 1
+            if compare == target:
+                return [left + 1, right + 1]
+    
 
-            if (curr > target):
-                r -= 1
-            elif (curr < target):
-                l += 1
-            else:
-                
-                return [l + 1, r + 1]
-        
-        return
+
+
