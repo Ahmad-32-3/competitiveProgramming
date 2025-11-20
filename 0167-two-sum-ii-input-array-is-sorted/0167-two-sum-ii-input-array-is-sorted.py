@@ -10,9 +10,9 @@ class Solution:
             compare = numbers[left] + numbers[right]
             if compare > target:
                 right = right - 1
-            if compare < target:
+            elif compare < target:
                 left = left + 1
-            if compare == target:
+            else:
                 return [left + 1, right + 1]
     
 
