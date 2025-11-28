@@ -3,7 +3,7 @@ class Solution:
         nlen = len(nums)
         l, r = 0, len(nums) - 1
 
-        while (l <= r):
+        while (nlen):
             M = (r + l) // 2
 
             if nums[M] > target:
