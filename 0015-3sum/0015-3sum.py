@@ -1,6 +1,5 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-
         sol = []
 
         nums.sort()
@@ -23,5 +22,5 @@ class Solution:
                     while nums[l] == nums[l-1] and l < r:
                         l += 1
 
-        return sol 
-        
+        return sol
+                
