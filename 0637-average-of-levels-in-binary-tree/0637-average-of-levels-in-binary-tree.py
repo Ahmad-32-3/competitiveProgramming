@@ -11,21 +11,17 @@ class Solution:
         q.append(root)
 
         while q:
-            level = 0
-            len_level = 0
             qlen = len(q)
-            tot = 0
-
+            
+            currAve = 0
             for i in range(qlen):
                 node = q.popleft()
-                if node:
-                    level += node.val
-                    len_level += 1
-                    if node.left:
-                        q.append(node.left)
-                    if node.right:
-                        q.append(node.right)
-
-            average.append(level / len_level)
-
+                currAve += node.val
+                
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            
+            average.append(currAve / qlen)
         return average
