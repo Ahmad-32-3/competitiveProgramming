@@ -3,7 +3,7 @@ class Solution:
         ork = float('inf')
         res = 0
         nums.sort()
-        for i in range(len(nums) - 2):
+        for i in range(len(nums)):
             e = nums[i]
 
             l, r = i + 1, len(nums) - 1
