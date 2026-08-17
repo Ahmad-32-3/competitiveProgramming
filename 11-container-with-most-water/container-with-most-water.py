@@ -3,16 +3,12 @@ class Solution:
         l, r = 0, len(height) - 1
         area = 0
         while l < r:
-            distance = r - l
+            currArea = min(height[l], height[r]) * (r - l)
 
-            currArea = distance * min(height[l], height[r])
+            area = max(area, currArea)
 
-            if currArea > area:
-                area = currArea
-
-            if height[l] > height[r]:
-                r -= 1
-            else:
+            if height[l] < height[r]:
                 l += 1
+            else:
+                r -= 1
         return area
-            
