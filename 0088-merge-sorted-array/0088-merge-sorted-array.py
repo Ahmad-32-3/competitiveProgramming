@@ -10,7 +10,8 @@ class Solution:
         for i in range(m+n-1, -1, -1):
             if two == -1:
                 break
-            elif one == -1:
+            
+            if one == -1:
                 nums1[i] = nums2[two]
                 two -= 1
             elif nums2[two] > nums1[one]:
