@@ -3,12 +3,22 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        res = []
-        length = len(nums) - 1
         k = k % len(nums)
-        for i in range(length - k, (length - k) - length -  1, - 1):
-            res.append(nums[i])
-
-        res = res[::-1]
-        nums[:] = res
+        l, r = 0, len(nums) - 1
         
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+            r -= 1
+
+        l, r = 0, k - 1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+            r -= 1
+        
+        l, r = k, len(nums) - 1
+        while l < r:
+            nums[l], nums[r] = nums[r], nums[l]
+            l += 1
+            r -= 1
