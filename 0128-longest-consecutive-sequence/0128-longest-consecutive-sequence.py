@@ -1,23 +1,17 @@
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
-        visited = set()
-        if not nums:
-            return 0
-
-        for i, e in enumerate(nums):
-            visited.add(e)
+    def longestConsecutive(self, nums: list[int]) -> int:
+        ork = set()
         res = 0
-        while nums:
-            target = nums.pop()
-            ork = 0
-            if target - 1 not in visited:
-                while target + 1 in visited:
-                    ork += 1
-                    res = max(res, ork)
-                    target = target + 1
-                    visited.remove(target)
+        counter = 0
+        for n in nums:
+            ork.add(n)
 
-        return res + 1
-
-        
-        
+        for key in ork:
+            if key - 1 not in ork:
+                while key + 1 in ork:
+                    counter += 1
+                    key += 1
+                res = max(res, counter + 1)
+                counter = 0
+                
+        return res
