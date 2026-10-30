@@ -8,10 +8,9 @@ class Solution:
 
         for key in ork:
             if key - 1 not in ork:
-                while key + 1 in ork:
+                while key + counter in ork:
                     counter += 1
-                    key += 1
-                res = max(res, counter + 1)
+                res = max(res, counter)
                 counter = 0
-                
+
         return res
